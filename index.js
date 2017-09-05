@@ -18,7 +18,7 @@ db.connect((err) => {
     console.log('Connection established')
 });
 
-app = express();
+const app = express();
 
 app.use(bodyParser.json());
 
@@ -43,6 +43,50 @@ app.route('/users')
                 res.send(err);
             else {
                 res.status(201).send('Add user');
+            }
+        })
+    })
+app.route('/users')
+    .get((req, res) => {
+        const sql = 'SELECT * FROM users';
+        db.query(sql, (err, result) => {
+            if(err) 
+                res.send(err);
+            else {
+                res.status(200).json(result);
+            }
+        })
+    })
+    .post((req, res) => {
+        const user = req.body;
+        const sql = 'INSERT INTO users SET ?';
+        db.query(sql, user, (err, result) => {
+            if(err) 
+                res.send(err);
+            else {
+                res.status(201).send('Add user');
+            }
+        })
+    })
+app.route('/posts')
+    .get((req, res) => {
+        const sql = 'SELECT * FROM posts';
+        db.query(sql, (err, result) => {
+            if(err) 
+                res.send(err);
+            else {
+                res.status(200).json(result);
+            }
+        })
+    })
+    .post((req, res) => {
+        const user = req.body;
+        const sql = 'INSERT INTO posts SET ?';
+        db.query(sql, user, (err, result) => {
+            if(err) 
+                res.send(err);
+            else {
+                res.status(201).send('Add post');
             }
         })
     })
