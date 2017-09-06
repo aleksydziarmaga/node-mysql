@@ -1,1 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
+h1 {
+    color: #369;
+    font-size: 250%;
+}
+
+h2, h3 {
+    color: #444;
+    font-weight: lighter;
+}
+body {
+    color: #888;
+    margin: 2em;
+}
+a {
+    cursor: pointer;
+    cursor: hand;
+}
+nav a {
+  padding: 1em;
+  text-decoration: none;
+  margin-right: 1em;
+  margin-top: 1em;
+  display: inline-block;
+  background-color: #eee;
+  border-radius: 5%;
+}
+nav a:visited, a:link {
+  color: #607D8B;
+}
+nav a:hover {
+  color: #039be5;
+  background-color: #CFD8DC;
+}
+nav a.active {
+  color: #039be5;
+}
