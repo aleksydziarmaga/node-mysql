@@ -46,28 +46,29 @@ app.route('/users')
             }
         })
     })
-app.route('/users')
-    .get((req, res) => {
-        const sql = 'SELECT * FROM users';
-        db.query(sql, (err, result) => {
+app.get('/users/:userId/posts', (req, res) => {
+    const {userId} = req.params;
+    const sql = 'SELECT p.* FROM posts p JOIN users u ON u.id = p.user_id WHERE user_id = ' +  db.escape(userId);
+    db.query(sql, (err, result) => {
             if(err) 
                 res.send(err);
             else {
                 res.status(200).json(result);
             }
         })
-    })
-    .post((req, res) => {
-        const user = req.body;
-        const sql = 'INSERT INTO users SET ?';
-        db.query(sql, user, (err, result) => {
+})
+app.get('/users/:userId/topics', (req, res) => {
+    const {userId} = req.params;
+    const sql = 'SELECT t.* FROM topics t JOIN users u ON u.id = t.user_id WHERE user_id = ' +  db.escape(userId);
+    db.query(sql, (err, result) => {
             if(err) 
                 res.send(err);
             else {
-                res.status(201).send('Add user');
+                res.status(200).json(result);
             }
         })
-    })
+})
+// endpoints, for managing posts data
 app.route('/posts')
     .get((req, res) => {
         const sql = 'SELECT * FROM posts';
@@ -90,7 +91,8 @@ app.route('/posts')
             }
         })
     })
-app.route('/posts')
+// endpoints, for managing topics data
+app.route('/topics')
     .get((req, res) => {
         const sql = 'SELECT * FROM topics';
         db.query(sql, (err, result) => {
@@ -108,10 +110,21 @@ app.route('/posts')
             if(err) 
                 res.send(err);
             else {
-                res.status(201).send('Add post');
+                res.status(201).send('Add topic');
             }
         })
     })
+app.get('/topics/:topicId/posts', (req, res) => {
+    const {topicId} = req.params;
+    const sql = 'SELECT p.* FROM posts p JOIN topics t ON t.id = p.topic_id WHERE topic_id = ' +  db.escape(topicId);
+    db.query(sql, (err, result) => {
+            if(err) 
+                res.send(err);
+            else {
+                res.status(200).json(result);
+            }
+        })
+})
 app.listen(3333, () => {
     console.log('Server started on http://localhost:3333');
 })
