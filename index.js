@@ -1,6 +1,7 @@
 const express = require('express');
 const mysql = require('mysql');
 const bodyParser = require('body-parser');
+const cors = require('cors');
 
 //Create conection
 const db = mysql.createConnection({
@@ -21,6 +22,7 @@ db.connect((err) => {
 const app = express();
 
 app.use(bodyParser.json());
+app.use(cors());
 
 //Create endpoints to GET all users and save user
 app.route('/users')
