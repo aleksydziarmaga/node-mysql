@@ -1,15 +1,26 @@
 import { Component, OnInit } from '@angular/core';
 
+import {Topic} from './topic';
+import {TopicService} from './topic.service';
+
 @Component({
   selector: 'app-topics-list',
-  templateUrl: './topics-list.component.html',
+  template: `
+    <div class="grid grid-pad">
+      <a *ngFor="let topic of topics" class="list-item">
+        {{topic.topic_name}}
+      </a>
+    </div>
+  `,
   styleUrls: ['./topics-list.component.css']
 })
 export class TopicsListComponent implements OnInit {
-
-  constructor() { }
+  topics: Topic[];
+  constructor(private topicService: TopicService) { }
 
   ngOnInit() {
+    this.topicService.getTopics()
+      .then(data => this.topics = data);
   }
 
 }
