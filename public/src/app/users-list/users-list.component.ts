@@ -7,7 +7,7 @@ import {UserService} from './user.service';
   selector: 'app-users-list',
   template: `
     <div class="grid grid-pad">
-      <a *ngFor="let user of users" class="list-item">
+      <a *ngFor="let user of users" class="list-item" [routerLink] = "['/user', user.id]">
         {{user.name}}
       </a>
     </div>

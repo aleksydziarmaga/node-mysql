@@ -14,6 +14,7 @@ import { TopicComponent } from './topics-list/topic/topic.component';
 const appRoutes: Routes = [
   {path: 'topics', component: TopicsListComponent},
   {path: 'users', component: UsersListComponent},
+  {path: 'user/:id', component: UserComponent}
 ];
 
 @NgModule({
