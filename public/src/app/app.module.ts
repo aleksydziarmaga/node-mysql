@@ -8,6 +8,7 @@ import { TopicsListComponent } from './topics-list/topics-list.component';
 import { UsersListComponent } from './users-list/users-list.component';
 import { UserService } from './users-list/user.service';
 import { UserComponent } from './users-list/user/user.component';
+import { TopicService } from './topics-list/topic.service';
 
 const appRoutes: Routes = [
   {path: 'topics', component: TopicsListComponent},
@@ -30,6 +31,7 @@ const appRoutes: Routes = [
   ],
   providers: [
     UserService,
+    TopicService,
   ],
   bootstrap: [AppComponent]
 })

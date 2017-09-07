@@ -6,8 +6,10 @@ import {UserService} from './user.service';
 @Component({
   selector: 'app-users-list',
   template: `
-    <div *ngFor="let user of users">
-      {{user.name}}
+    <div class="grid grid-pad">
+      <a *ngFor="let user of users" class="list-item">
+        {{user.name}}
+      </a>
     </div>
   `,
   styleUrls: ['./users-list.component.css']
