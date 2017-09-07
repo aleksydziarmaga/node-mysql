@@ -1,16 +1,17 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ActivatedRoute, ParamMap } from '@angular/router';
-
 import 'rxjs/add/operator/switchMap';
 
 import {User} from './user';
 import {UserService} from '../user.service';
+import {UserTopicsComponent} from './user-topics/user-topics.component';
 @Component({
   selector: 'app-user',
   template: `
     <article *ngIf="user">
       <h2>{{user.name}}</h2>
       <h3>{{user.email}}</h3>
+      <app-user-topics></app-user-topics>
     </article>
   `,
   styleUrls: ['./user.component.css']

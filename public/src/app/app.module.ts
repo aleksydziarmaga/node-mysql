@@ -10,11 +10,14 @@ import { UserService } from './users-list/user.service';
 import { UserComponent } from './users-list/user/user.component';
 import { TopicService } from './topics-list/topic.service';
 import { TopicComponent } from './topics-list/topic/topic.component';
+import { UserPostsComponent } from './users-list/user/user-posts/user-posts.component';
+import { UserTopicsComponent } from './users-list/user/user-topics/user-topics.component';
 
 const appRoutes: Routes = [
   {path: 'topics', component: TopicsListComponent},
   {path: 'users', component: UsersListComponent},
-  {path: 'user/:id', component: UserComponent}
+  {path: 'user/:id', component: UserComponent},
+  {path: 'topic/:id', component: TopicComponent},
 ];
 
 @NgModule({
@@ -23,7 +26,9 @@ const appRoutes: Routes = [
     TopicsListComponent,
     UsersListComponent,
     UserComponent,
-    TopicComponent
+    TopicComponent,
+    UserPostsComponent,
+    UserTopicsComponent
   ],
   imports: [
     BrowserModule,

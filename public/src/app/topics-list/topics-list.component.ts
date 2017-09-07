@@ -7,7 +7,7 @@ import {TopicService} from './topic.service';
   selector: 'app-topics-list',
   template: `
     <div class="grid grid-pad">
-      <a *ngFor="let topic of topics" class="list-item">
+      <a *ngFor="let topic of topics" class="list-item" [routerLink] = "['/topic', topic.id]">
         {{topic.topic_name}}
       </a>
     </div>

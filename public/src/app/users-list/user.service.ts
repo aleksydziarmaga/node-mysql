@@ -22,4 +22,10 @@ export class UserService {
         .then(response => response.json() as User)
         .catch(err => console.log(err));
     }
+    getUserTopics(id): Promise<User> {
+      return this.http.get(`${this.usersUrl}/user/${id}/topics`)
+        .toPromise()
+        .then(response => response.json())
+        .catch(err => console.log(err));
+    }
 }
