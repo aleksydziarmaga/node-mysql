@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import {Http} from '@angular/http';
 import 'rxjs/add/operator/toPromise';
 
-import { Topic } from './topic';
+import { Topic } from './topic/topic';
 
 @Injectable()
 export class TopicService {

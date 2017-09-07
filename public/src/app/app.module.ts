@@ -9,6 +9,7 @@ import { UsersListComponent } from './users-list/users-list.component';
 import { UserService } from './users-list/user.service';
 import { UserComponent } from './users-list/user/user.component';
 import { TopicService } from './topics-list/topic.service';
+import { TopicComponent } from './topics-list/topic/topic.component';
 
 const appRoutes: Routes = [
   {path: 'topics', component: TopicsListComponent},
@@ -20,7 +21,8 @@ const appRoutes: Routes = [
     AppComponent,
     TopicsListComponent,
     UsersListComponent,
-    UserComponent
+    UserComponent,
+    TopicComponent
   ],
   imports: [
     BrowserModule,

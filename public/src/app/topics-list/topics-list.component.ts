@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import {Topic} from './topic';
+import {Topic} from './topic/topic';
 import {TopicService} from './topic.service';
 
 @Component({
